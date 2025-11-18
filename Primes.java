@@ -20,8 +20,8 @@ public class Primes {
                 System.out.println(i);
                 count++;
             }
-        double p= (double) count / a * 100.0;
-        System.out.println("There are " + count + " primes between 2 and " +a+ " ("+p+"% are primes)");
     }
+     double p= (double) count / a * 100.0;
+    System.out.println("There are " + count + " primes between 2 and " +a+ " ("+Math.round(p)+"% are primes)");
 }
 }
