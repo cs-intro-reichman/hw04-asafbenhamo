@@ -46,12 +46,11 @@ public class ArrCharOps {
      */
     public static boolean equals(char[] arr1, char[] arr2) {
         // Replace the following statement with your code
-        for(int i = 0; i<arr1.length; i++){
-            for(int j = 0; i<arr2.length; j++){
-                if (arr1[i] != arr2[j]) return false;
-            }
+        if (arr1.length != arr2.length) return false;
+    for (int i = 0; i < arr1.length; i++) {
+        if (arr1[i] != arr2[i]) return false;
         }
-        return true;
+    return true;
     }
 
     /** Returns the index within the given array of the first occurrence of the given character.
@@ -91,14 +90,14 @@ public class ArrCharOps {
     */
     public static char[] concat(char[] arr1, char[] arr2) {
         // Replace the following statement with your code
-        int c = arr1.length+arr2.length+1;
+        int c = arr1.length+arr2.length;
         char[] arr3 = new char[c];
         for(int i =0; i< arr1.length; i++){
           arr3[i] = arr1[i];
         }
         arr3 [arr1.length]= ' ';
             for (int j = 0; j<arr2.length; j++){
-                int h = j+ arr1.length+1;
+                int h = j+ arr1.length;
                 arr3[h] = arr2 [j];
 
             }
@@ -115,7 +114,7 @@ public class ArrCharOps {
         // Replace the following statement with your code
         int c = endIndex - beginIndex;
         char[] arr2 = new char[c];
-        for (int i =0 ; i< endIndex-beginIndex; i++){
+        for (int i =0 ; i< c; i++){
             arr2[i]= arr[beginIndex+i];
         }
         return arr2;
@@ -165,6 +164,7 @@ public class ArrCharOps {
      */
     public static int compareTo(String str1, String str2) {
         // Replace the following statement with your code
+        if (str1.length()==0 || str2.length() == 0) return -2;
         if (str1.length()<str2.length()) return -1; 
         if  (str1.length()>str2.length()) return 1;
         if  (str1.length()==str2.length()) {
@@ -174,8 +174,7 @@ public class ArrCharOps {
                 else return 1;
             }
         }
-        return 0;
     }
-        return -2;
-    }
+    return 0;
+ }
 }
