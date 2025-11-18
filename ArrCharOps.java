@@ -130,12 +130,11 @@ public class ArrCharOps {
      */
     public static long hashCode(char[] arr) {
         // Replace the following statement with your code
-        int c = 0;
-    
-        for(int i = 0 , j=1 ;i<arr.length-2; i++ ,j++){
-            c = c + arr[i]* 7 ^ (arr.length-j);
+        long c = arr[0];
+        if (arr.length == 0) return 0;
+        for(int i = 1  ;i<arr.length; i++ ){
+            c = c * 7 + arr [i];
         }
-        c = c + arr[arr.length-1];
         return c;
     }
 
