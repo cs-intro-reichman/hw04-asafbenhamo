@@ -27,10 +27,16 @@ public static String [] changetoarr(String s) {
         for(int i =0; i<s.length() ; i++){
                if (s.charAt(i) != ' ') h = h + s.charAt(i);
                else {
+                if (h.length()>0){
+                h = h.toLowerCase();
                 arr[j] = h;
                 j++;
                 h="";
+                }
                }
+            }
+            if (h.length()>0) {
+            arr[j] = h.toLowerCase();
             }
             return arr;
         }
@@ -40,16 +46,21 @@ public static String [] changetoarr(String s) {
     // If a sentence contains one or more of the kewords, prints it.
     public static void detectAndPrint(String[] sentences, String[] keywords) {
         // Replace this comment with your code
+
         for(int i =0; i<sentences.length ; i++){
-         String [] arr = new String[sentences[i].length()];
-          arr = changetoarr(sentences[i]);
+            boolean found = false;
+         String [] arr = changetoarr(sentences[i]);
           for(int v =0; v<arr.length;v++){
-            int m =0;
-                for (int c= 0 ; c< keywords.length; c++){
-               if ( arr[v] ==  keywords[c]) m++;
+            if (arr[v]==null) break;
+             for (int c= 0 ; c< keywords.length; c++){
+                 keywords[c]= keywords[c].toLowerCase();
+               if ( arr[v].equals(keywords[c])){
+            found= true;
+               break;
              }
-             if (m>0) System.out.println(sentences[i]);
          }
+        }
+        if (found==true) System.out.println(sentences[i]); 
         }
     }
 }
