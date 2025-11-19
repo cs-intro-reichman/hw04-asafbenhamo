@@ -33,7 +33,7 @@ public class MyString {
     public static boolean contains(String str1, String str2) {
         // Replace the following statement with your code
         String g = "";
-        if (str1.length()==0) return true;
+        if (str2.length()==0) return true;
         if (str1.length()<str2.length()) return false;
         if (str1.equals(str2) == true) return true;
         int i=0;
